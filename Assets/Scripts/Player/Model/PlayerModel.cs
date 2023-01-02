@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerModel : MonoBehaviour
+public class PlayerModel : PlayerElement
 {
     #region OtherModels
     private WeaponModel weaponModel;
@@ -10,12 +10,6 @@ public class PlayerModel : MonoBehaviour
 
     #region PlayerDataAttributes
     [SerializeField] private PlayerData playerData;
-    private string playerName;
-    private int playerSpeed;
-    private int playerDashSpeed;
-    private int playerMaxDashUses;
-    private int playerMaxHitPoints;
-    private int playerDamage;
     #endregion
 
     #region InGamePlayerAttributes
@@ -24,17 +18,16 @@ public class PlayerModel : MonoBehaviour
     #endregion
 
     #region PlayerDataMethods
-    public string PlayerName { get => playerName; set => playerName = value; }
-    public int PlayerSpeed { get => playerSpeed; }
-    public int PlayerDashSpeed { get => playerDashSpeed; }
-    public int PlayerMaxDashUses { get => playerMaxDashUses; }
-    public int PlayerMaxHitPoints { get => playerMaxHitPoints; }
-    public int PlayerDamage { get => playerDamage; }
+    public string PlayerName { get => playerData.name; set => playerData.name = value; }
+    public int PlayerSpeed { get => playerData.speed; }
+    public int PlayerDashSpeed { get => playerData.dashSpeed; }
+    public int PlayerMaxDashUses { get => playerData.maxDashUses; }
+    public int PlayerMaxHitPoints { get => playerData.maxHitPoints; }
+    public int PlayerDamage { get => playerData.maxHitPoints; }
     #endregion
 
     #region InGamePlayerDataMethods
     public int PlayerCurrentHitPoints { get => playerCurrentHitPoints; set => playerCurrentHitPoints = value; }
     public int PlayerCurrentDashUses { get => playerCurrentDashUses; set => playerCurrentDashUses = value; }
     #endregion
-
 }
