@@ -15,7 +15,6 @@ MonoBehaviour:
   name: John
   speed: 10
   dashSpeed: 30
-  dashUses: 1
-  maxDashUses: 3
+  maxDashPoints: 3
   maxHitPoints: 10
   damage: 1

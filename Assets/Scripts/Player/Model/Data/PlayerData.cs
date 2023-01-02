@@ -8,7 +8,7 @@ public class PlayerData : ScriptableObject
     public new string name;
     public int speed;
     public int dashSpeed;
-    public int maxDashUses;
+    public int maxDashPoints;
     public int maxHitPoints;
     public int damage;
 }

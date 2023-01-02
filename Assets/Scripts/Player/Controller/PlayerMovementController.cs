@@ -8,12 +8,6 @@ public class PlayerMovementController : PlayerElement
 
     private float horizontalAxis;
     private float verticalAxis;
-    private int currentPlayerSpeed;
-
-    private void Start()
-    {
-        currentPlayerSpeed = playerApplication.playerModel.PlayerSpeed;
-    }
 
     private void Update()
     {
@@ -28,26 +22,31 @@ public class PlayerMovementController : PlayerElement
 
     public Vector2 OnPlayerMove()
     {
-        return new Vector2(horizontalAxis * currentPlayerSpeed, verticalAxis * currentPlayerSpeed);
+        return new Vector2(horizontalAxis * playerApplication.playerModel.PlayerCurrentSpeed, verticalAxis * playerApplication.playerModel.PlayerCurrentSpeed);
     }
 
     public void OnPlayerDash()
     {
         if (canDash())
         {
-            currentPlayerSpeed = playerApplication.playerModel.PlayerDashSpeed;
+            playerApplication.playerModel.PlayerCurrentSpeed = playerApplication.playerModel.PlayerDashSpeed;
             StartCoroutine(DashTime());
         }
     }
 
     private bool canDash()
     {
-        return true;
+        return playerApplication.playerModel.PlayerCurrentDashPoints > 0;
+    }
+
+    private void UseDashPoint()
+    {
+
     }
 
     IEnumerator DashTime()
     {
         yield return new WaitForSeconds(DASH_TIME);
-        currentPlayerSpeed = playerApplication.playerModel.PlayerSpeed;
+        playerApplication.playerModel.PlayerCurrentSpeed = playerApplication.playerModel.PlayerSpeed;
     }
 }
