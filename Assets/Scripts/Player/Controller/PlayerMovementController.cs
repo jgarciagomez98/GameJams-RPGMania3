@@ -54,7 +54,6 @@ public class PlayerMovementController : PlayerElement
         {
             playerApplication.playerModel.PlayerCurrentDashPoints--;
         }
-        Debug.Log("REMAINING DASHES: " + playerApplication.playerModel.PlayerCurrentDashPoints);
     }
 
     private void RestoreDash()
@@ -80,9 +79,13 @@ public class PlayerMovementController : PlayerElement
         while (playerApplication.playerModel.PlayerCurrentDashPoints < playerApplication.playerModel.PlayerMaxDashPoints)
         {
             playerApplication.playerModel.PlayerCurrentDashPoints++;
-            Debug.Log("RECOVER DASH POINT");
             yield return new WaitForSeconds(RESTORE_DASH_TIME);
         }
         restoreDashCoroutine = null;
+    }
+
+    public bool isPlayerStopped()
+    {
+        return playerApplication.playerModel.PlayerCurrentSpeed == 0;
     }
 }
