@@ -23,13 +23,13 @@ public class PlayerMovementView : PlayerElement
 
     private void Move()
     {
-        rb2D.velocity = playerApplication.playerMovementController.OnPlayerMove();
+        rb2D.velocity = playerApplication.controllers.movementController.OnPlayerMove();
     }
 
     private void Dash()
     {
         if(Input.GetKeyDown(KeyCode.Space)) {
-            playerApplication.playerMovementController.OnPlayerDash();
+            playerApplication.controllers.movementController.OnPlayerDash();
         }
     }
 }

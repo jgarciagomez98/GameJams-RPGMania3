@@ -25,14 +25,14 @@ public class PlayerMovementController : PlayerElement
 
     public Vector2 OnPlayerMove()
     {
-        return new Vector2(horizontalAxis * playerApplication.playerModel.PlayerCurrentSpeed, verticalAxis * playerApplication.playerModel.PlayerCurrentSpeed);
+        return new Vector2(horizontalAxis * playerApplication.model.PlayerCurrentSpeed, verticalAxis * playerApplication.model.PlayerCurrentSpeed);
     }
 
     public void OnPlayerDash()
     {
         if (canDash())
         {
-            playerApplication.playerModel.PlayerCurrentSpeed = playerApplication.playerModel.PlayerDashSpeed;
+            playerApplication.model.PlayerCurrentSpeed = playerApplication.model.PlayerDashSpeed;
             isDashing = true;
             UseDashPoint();
             StartCoroutine(DashTime());
@@ -41,18 +41,18 @@ public class PlayerMovementController : PlayerElement
 
     private bool canDash()
     {
-        return playerApplication.playerModel.PlayerCurrentDashPoints > 0 && !isDashing;
+        return playerApplication.model.PlayerCurrentDashPoints > 0 && !isDashing;
     }
 
     private void UseDashPoint()
     {
-        if (playerApplication.playerModel.PlayerCurrentDashPoints - 1 <= 0)
+        if (playerApplication.model.PlayerCurrentDashPoints - 1 <= 0)
         {
-            playerApplication.playerModel.PlayerCurrentDashPoints = 0;
+            playerApplication.model.PlayerCurrentDashPoints = 0;
         }
         else
         {
-            playerApplication.playerModel.PlayerCurrentDashPoints--;
+            playerApplication.model.PlayerCurrentDashPoints--;
         }
     }
 
@@ -68,7 +68,7 @@ public class PlayerMovementController : PlayerElement
     IEnumerator DashTime()
     {
         yield return new WaitForSeconds(DASH_TIME);
-        playerApplication.playerModel.PlayerCurrentSpeed = playerApplication.playerModel.PlayerSpeed;
+        playerApplication.model.PlayerCurrentSpeed = playerApplication.model.PlayerSpeed;
         isDashing = false;
         RestoreDash();
     }
@@ -76,9 +76,9 @@ public class PlayerMovementController : PlayerElement
     IEnumerator RestoreDashPoint()
     {
         yield return new WaitForSeconds(RESTORE_DASH_TIME);
-        while (playerApplication.playerModel.PlayerCurrentDashPoints < playerApplication.playerModel.PlayerMaxDashPoints)
+        while (playerApplication.model.PlayerCurrentDashPoints < playerApplication.model.PlayerMaxDashPoints)
         {
-            playerApplication.playerModel.PlayerCurrentDashPoints++;
+            playerApplication.model.PlayerCurrentDashPoints++;
             yield return new WaitForSeconds(RESTORE_DASH_TIME);
         }
         restoreDashCoroutine = null;
@@ -86,6 +86,6 @@ public class PlayerMovementController : PlayerElement
 
     public bool isPlayerStopped()
     {
-        return playerApplication.playerModel.PlayerCurrentSpeed == 0;
+        return playerApplication.model.PlayerCurrentSpeed == 0;
     }
 }

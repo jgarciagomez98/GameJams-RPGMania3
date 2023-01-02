@@ -7,8 +7,8 @@ public class PlayerController : PlayerElement
     void Start()
     {
         //Initialize all variables from model by default
-        playerApplication.playerModel.PlayerCurrentSpeed = playerApplication.playerModel.PlayerSpeed;
-        playerApplication.playerModel.PlayerCurrentDashPoints = playerApplication.playerModel.PlayerMaxDashPoints;
-        playerApplication.playerModel.PlayerCurrentHitPoints = playerApplication.playerModel.PlayerMaxHitPoints;
+        playerApplication.model.PlayerCurrentSpeed = playerApplication.model.PlayerSpeed;
+        playerApplication.model.PlayerCurrentDashPoints = playerApplication.model.PlayerMaxDashPoints;
+        playerApplication.model.PlayerCurrentHitPoints = playerApplication.model.PlayerMaxHitPoints;
     }
 }
