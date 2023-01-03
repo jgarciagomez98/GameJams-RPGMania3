@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerModel : MonoBehaviour
+public class PlayerModel : PlayerElement
 {
     #region DefaultPlayerData
     [SerializeField] private DefaultConfigDataPlayer defaultConfigData;
