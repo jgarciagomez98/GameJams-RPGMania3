@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94a86bcd3283d5e4aabf6f5b32697e3c, type: 3}
   m_Name: DefaultConfigDataPlayer
   m_EditorClassIdentifier: 
-  name: 
-  speed: 0
-  dashSpeed: 0
-  maxDashUses: 0
-  maxHitPoints: 0
-  damage: 0
+  name: John
+  speed: 10
+  dashSpeed: 30
+  maxStamina: 3
+  maxHitPoints: 10
+  damage: 1
