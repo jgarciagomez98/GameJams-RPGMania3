@@ -8,6 +8,7 @@ public class PlayerMovementController : PlayerElement
 
     private float horizontalAxis;
     private float verticalAxis;
+    private Vector2 velocity;
 
     private void Start()
     {
@@ -27,7 +28,8 @@ public class PlayerMovementController : PlayerElement
 
     public void OnPlayerMove()
     {
-        app.movementView.DoMove(new Vector2(horizontalAxis * app.model.CurrentSpeed, verticalAxis * app.model.CurrentSpeed));
+        velocity = new Vector2(horizontalAxis * app.model.CurrentSpeed, verticalAxis * app.model.CurrentSpeed);
+        app.movementView.DoMove(velocity);
     }
 
     public void OnPlayerDash()
@@ -37,6 +39,11 @@ public class PlayerMovementController : PlayerElement
             app.model.CurrentSpeed = app.model.DashSpeed;
             StartCoroutine(DashDistance());
         }
+    }
+
+    public bool isPlayerStopped()
+    {
+        return velocity.magnitude == 0;
     }
 
     private bool canDash()
