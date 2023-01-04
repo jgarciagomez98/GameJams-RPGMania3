@@ -280,6 +280,12 @@ MonoBehaviour:
   healthBarView: {fileID: 855367144}
   damageController: {fileID: 1927581930}
   damageView: {fileID: 1927581927}
+  attackController: {fileID: 713363847}
+  attackView: {fileID: 713363848}
+  simpleAttackController: {fileID: 0}
+  simpleAttackView: {fileID: 0}
+  circularAttackController: {fileID: 0}
+  circularAttackView: {fileID: 0}
 --- !u!114 &101578750
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -572,7 +578,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &487549766
 Transform:
   m_ObjectHideFlags: 0
@@ -598,7 +604,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -781,6 +787,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 713363845}
+  - component: {fileID: 713363846}
+  - component: {fileID: 713363848}
+  - component: {fileID: 713363847}
   m_Layer: 0
   m_Name: PivotPointAreas
   m_TagString: Untagged
@@ -805,6 +814,42 @@ Transform:
   m_Father: {fileID: 2135050095}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &713363846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 713363844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7ca2c0824a5d4d4fa969da0bce6fe43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &713363847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 713363844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ead39fc1a58cefb46abdec977d92461d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &713363848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 713363844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58dc247fd0ec1814ba5cde1efdb62308, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &855367141
 GameObject:
   m_ObjectHideFlags: 0
@@ -1127,7 +1172,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1600028342
 Transform:
   m_ObjectHideFlags: 0
@@ -1153,7 +1198,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -1207,13 +1252,15 @@ GameObject:
   - component: {fileID: 1793468382}
   - component: {fileID: 1793468384}
   - component: {fileID: 1793468383}
+  - component: {fileID: 1793468386}
+  - component: {fileID: 1793468385}
   m_Layer: 0
   m_Name: CircularHitArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1793468382
 Transform:
   m_ObjectHideFlags: 0
@@ -1297,6 +1344,30 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1793468385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1793468381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a9372131fe9d7c4683aeca0afddeef8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1793468386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1793468381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 334822d4b53b72d43b6fb8b166d306a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1813105978
 GameObject:
   m_ObjectHideFlags: 0
@@ -1816,13 +1887,15 @@ GameObject:
   - component: {fileID: 2135230941}
   - component: {fileID: 2135230942}
   - component: {fileID: 2135230943}
+  - component: {fileID: 2135230945}
+  - component: {fileID: 2135230944}
   m_Layer: 0
   m_Name: SimpleHitArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2135230941
 Transform:
   m_ObjectHideFlags: 0
@@ -1916,3 +1989,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.5, y: 1.5}
   m_EdgeRadius: 0
+--- !u!114 &2135230944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2135230940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3bc25285d9a42f49872cf0910197f50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2135230945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2135230940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22af0c47ac90b764493644fe8ca78cfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
