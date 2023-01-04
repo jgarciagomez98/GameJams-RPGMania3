@@ -5,14 +5,20 @@ using UnityEngine;
 public class PlayerMovementController : PlayerElement
 {
     private const float DASH_DISTANCE = 0.2f;
+    private const float DASH_RECOVERY_TIME = 2f;
 
     private float horizontalAxis;
     private float verticalAxis;
     private Vector2 velocity;
+    private bool isDashing;
+
+    private Coroutine dashRecoveryCoroutine;
 
     private void Start()
     {
         app.model.CurrentSpeed = app.model.Speed;
+        app.model.CurrentStamina = app.model.MaxStamina;
+        isDashing = false;
     }
 
     private void Update()
@@ -37,6 +43,8 @@ public class PlayerMovementController : PlayerElement
         if (canDash())
         {
             app.model.CurrentSpeed = app.model.DashSpeed;
+            app.model.CurrentStamina--;
+            isDashing = true;
             StartCoroutine(DashDistance());
         }
     }
@@ -48,12 +56,33 @@ public class PlayerMovementController : PlayerElement
 
     private bool canDash()
     {
-        return true;
+        return !isDashing && app.model.CurrentStamina > 0;
     }
 
     IEnumerator DashDistance()
     {
         yield return new WaitForSeconds(DASH_DISTANCE);
         app.model.CurrentSpeed = app.model.Speed;
+        isDashing = false;
+        StartRecoveryStamina();
+    }
+
+    private void StartRecoveryStamina()
+    {
+        if (dashRecoveryCoroutine != null)
+        {
+            StopCoroutine(dashRecoveryCoroutine);
+        }
+        dashRecoveryCoroutine = StartCoroutine(DashRecovery());
+    }
+
+    IEnumerator DashRecovery()
+    {
+        yield return new WaitForSeconds(DASH_RECOVERY_TIME);
+        while (app.model.CurrentStamina < app.model.MaxStamina) {
+            app.model.CurrentStamina++;
+            yield return new WaitForSeconds(DASH_RECOVERY_TIME);
+        }
+        dashRecoveryCoroutine = null;
     }
 }
