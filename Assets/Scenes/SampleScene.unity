@@ -282,10 +282,10 @@ MonoBehaviour:
   damageView: {fileID: 1927581927}
   attackController: {fileID: 713363847}
   attackView: {fileID: 713363848}
-  simpleAttackController: {fileID: 0}
-  simpleAttackView: {fileID: 0}
-  circularAttackController: {fileID: 0}
-  circularAttackView: {fileID: 0}
+  simpleAttackController: {fileID: 2135230945}
+  simpleAttackView: {fileID: 2135230944}
+  circularAttackController: {fileID: 1793468386}
+  circularAttackView: {fileID: 1793468385}
 --- !u!114 &101578750
 MonoBehaviour:
   m_ObjectHideFlags: 0
