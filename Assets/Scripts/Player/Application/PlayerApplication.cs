@@ -11,4 +11,10 @@ public class PlayerApplication : MonoBehaviour
 
     public StaminaBarController staminaBarController;
     public StaminaBarView staminaBarView;
+
+    public HealthBarController healthBarController;
+    public HealthBarView healthBarView;
+
+    public PlayerDamageController damageController;
+    public PlayerDamageView damageView;
 }

@@ -215,6 +215,7 @@ Transform:
   - {fileID: 2135050095}
   - {fileID: 487549766}
   - {fileID: 1600028342}
+  - {fileID: 1927581929}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -273,10 +274,12 @@ MonoBehaviour:
   model: {fileID: 101578751}
   movementController: {fileID: 101578750}
   movementView: {fileID: 101578745}
-  sliderController: {fileID: 0}
-  sliderView: {fileID: 0}
   staminaBarController: {fileID: 334909771}
   staminaBarView: {fileID: 334909772}
+  healthBarController: {fileID: 855367145}
+  healthBarView: {fileID: 855367144}
+  damageController: {fileID: 1927581930}
+  damageView: {fileID: 1927581927}
 --- !u!114 &101578750
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -812,6 +815,8 @@ GameObject:
   m_Component:
   - component: {fileID: 855367142}
   - component: {fileID: 855367143}
+  - component: {fileID: 855367145}
+  - component: {fileID: 855367144}
   m_Layer: 5
   m_Name: HealthBar
   m_TagString: Untagged
@@ -893,6 +898,30 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &855367144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 855367141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87e5f222f83ea75498190c92e4e622a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &855367145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 855367141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8458132ec01c74044812a7f6efcaad0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1166481555
 GameObject:
   m_ObjectHideFlags: 0
@@ -1381,6 +1410,78 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1902918210}
   m_CullTransparentMesh: 1
+--- !u!1 &1927581926
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1927581929}
+  - component: {fileID: 1927581928}
+  - component: {fileID: 1927581927}
+  - component: {fileID: 1927581930}
+  m_Layer: 0
+  m_Name: DamageArea
+  m_TagString: PlayerDamageHitBox
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1927581927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1927581926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886a6650d6097a844b637b24e7b65587, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!136 &1927581928
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1927581926}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.4
+  m_Height: 1.75
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &1927581929
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1927581926}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 101578743}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1927581930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1927581926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d16b46c24afc71b44b0f8576e072b94e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1972777918
 GameObject:
   m_ObjectHideFlags: 0
