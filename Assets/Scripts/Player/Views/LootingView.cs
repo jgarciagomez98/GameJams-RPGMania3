@@ -8,8 +8,8 @@ public class LootingView : PlayerElement
     {
         if (collision.tag == "Coins")
         {
-            //TODO: Call controller method and destroy coin game object
-            //app.lootingController.OnLootingCoins(collision.GetComponent<>());
+            app.lootingController.OnLootingCoins(collision.GetComponent<CoinsController>().GetCoinValue());
+            Destroy(collision.gameObject);
         }
     }
 }

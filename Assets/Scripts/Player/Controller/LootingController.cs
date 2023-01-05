@@ -6,6 +6,6 @@ public class LootingController : PlayerElement
 {
    public void OnLootingCoins(int value)
     {
-        app.model.CurrentMoney += value; 
+        app.model.CurrentMoney += value;
     }
 }
