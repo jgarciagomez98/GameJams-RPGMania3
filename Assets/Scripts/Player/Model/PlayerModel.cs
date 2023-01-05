@@ -24,7 +24,4 @@ public class PlayerModel : PlayerElement
     public int CurrentSpeed { get => currentSpeed; set => currentSpeed = value; }
     public int CurrentMoney { get => currentMoney; set => currentMoney = value; }
     #endregion
-
-
-
 }
