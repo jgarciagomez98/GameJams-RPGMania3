@@ -27,4 +27,8 @@ public class PlayerApplication : MonoBehaviour
     public SimpleAttackView simpleAttackView;
     public CircularAttackController circularAttackController;
     public CircularAttackView circularAttackView;
+
+    [Header("Looting")]
+    public LootingController lootingController;
+    public LootingView lootingView;
 }

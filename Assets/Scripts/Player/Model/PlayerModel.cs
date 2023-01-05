@@ -17,10 +17,12 @@ public class PlayerModel : PlayerElement
     private int currentHitPoints;
     private int currentStamina;
     private int currentSpeed;
+    private int currentMoney;
 
     public int CurrentHitPoints { get => currentHitPoints; set => currentHitPoints = value; }
     public int CurrentStamina { get => currentStamina; set => currentStamina = value; }
     public int CurrentSpeed { get => currentSpeed; set => currentSpeed = value; }
+    public int CurrentMoney { get => currentMoney; set => currentMoney = value; }
     #endregion
 
 
