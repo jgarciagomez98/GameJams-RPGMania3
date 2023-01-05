@@ -10,11 +10,13 @@ public class PlayerApplication : MonoBehaviour
     public PlayerMovementController movementController;
     public PlayerMovementView movementView;
 
-    [Header("Sliders")]
+    [Header("UI")]
     public StaminaBarController staminaBarController;
     public StaminaBarView staminaBarView;
     public HealthBarController healthBarController;
     public HealthBarView healthBarView;
+    public GoldController goldController;
+    public GoldView goldView;
 
     [Header("Damage")]
     public PlayerDamageController damageController;

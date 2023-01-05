@@ -8,7 +8,7 @@ public class CoinsController : MonoBehaviour
 
     private void Start()
     {
-        value = Random.Range(0, 10);
+        value = Random.Range(1, 10);
     }
 
     public int GetCoinValue()
