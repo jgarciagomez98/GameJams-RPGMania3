@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class ProximitySensorController : EnemyElement
 {
-    // Start is called before the first frame update
-    void Start()
+    public void OnPlayerEnter(Transform playerTransform)
     {
-        
+        if (!app.model.IsInAlert)
+        {
+            app.model.PlayerTransform = playerTransform;
+            app.lookingSensorController.OnPlayerEnterVisionArea(playerTransform);
+            ToggleActivateCollider();
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void ToggleActivateCollider()
     {
-        
+        app.proximitySensorView.OnToggleActivateCollider();
     }
 }

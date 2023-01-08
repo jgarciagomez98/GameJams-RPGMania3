@@ -43,5 +43,7 @@ public class AlertSensorController : EnemyElement
         app.model.IsInAlert = false;
         keepInAlertCoroutine = null;
         ToggleActivateCollider();
+        app.proximitySensorView.OnToggleActivateCollider();
+
     }
 }
