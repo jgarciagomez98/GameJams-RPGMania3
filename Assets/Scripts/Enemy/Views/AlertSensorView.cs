@@ -4,15 +4,24 @@ using UnityEngine;
 
 public class AlertSensorView : EnemyElement
 {
-    // Start is called before the first frame update
-    void Start()
+    private bool isCollisionEnabled;
+    private void Start()
     {
-        
+        isCollisionEnabled = false;
+        transform.GetComponent<CircleCollider2D>().enabled = isCollisionEnabled;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        if (collision.tag == "Player")
+        {
+            app.alertSensorController.OnPlayerEnter(collision.transform);
+        }
+    }
+
+    public void OnToggleColliderEnabled()
+    {
+        isCollisionEnabled = !isCollisionEnabled;
+        transform.GetComponent<CircleCollider2D>().enabled = isCollisionEnabled;
     }
 }

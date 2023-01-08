@@ -12,4 +12,5 @@ public class EnemyConfigData : ScriptableObject
     public int maxStamina;
     public int maxHitPoints;
     public int damage;
+    public float secondsInAlert;
 }

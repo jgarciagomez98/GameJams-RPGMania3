@@ -4,18 +4,17 @@ using UnityEngine;
 
 public class LookingSensorController : EnemyElement
 {
-    private Transform playerTransform;
+    private const float ENEMY_KEEP_WATCHING_PLAYER = 3f;
     private Coroutine stopFollowPlayerCoroutine;
 
     void Start()
     {
-        playerTransform = null;
         stopFollowPlayerCoroutine = null;
     }
 
     private void FixedUpdate()
     {
-        if (playerTransform != null)
+        if (app.model.PlayerTransform != null)
         {
             FollowPlayerWithVision();
         }
@@ -23,8 +22,8 @@ public class LookingSensorController : EnemyElement
 
     public void OnPlayerEnterVisionArea(Transform playerTransform)
     {
-        this.playerTransform = playerTransform;
         app.model.PlayerTransform = playerTransform;
+        app.model.IsInAlert = true;
 
         if (stopFollowPlayerCoroutine != null)
         {
@@ -39,14 +38,24 @@ public class LookingSensorController : EnemyElement
 
     private void FollowPlayerWithVision()
     {
-        app.lookingSensorView.OnPlayerFollowWithVision(playerTransform.position);
+        app.lookingSensorView.OnPlayerFollowWithVision(app.model.PlayerTransform.position);
     }
 
     IEnumerator StopFollowPlayer()
     {
-        yield return new WaitForSeconds(3f);
-        playerTransform = null;
+        yield return new WaitForSeconds(ENEMY_KEEP_WATCHING_PLAYER);
+        CleanReference();
+        KeepInAlert();
+    }
+
+    private void CleanReference()
+    {
         stopFollowPlayerCoroutine = null;
         app.model.PlayerTransform = null;
+    }
+
+    private void KeepInAlert()
+    {
+        app.alertSensorController.OnKeepInAlert();
     }
 }
