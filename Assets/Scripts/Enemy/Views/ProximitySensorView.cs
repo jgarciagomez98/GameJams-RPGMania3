@@ -19,9 +19,15 @@ public class ProximitySensorView : EnemyElement
         }
     }
 
-    public void OnToggleActivateCollider()
+    public void DisableProximitySensor()
     {
-        isCollisionEnabled = !isCollisionEnabled;
+        isCollisionEnabled = false;
+        transform.GetComponent<CapsuleCollider2D>().enabled = isCollisionEnabled;
+    }
+
+    public void EnaableProximitySensor()
+    {
+        isCollisionEnabled = true;
         transform.GetComponent<CapsuleCollider2D>().enabled = isCollisionEnabled;
     }
 }

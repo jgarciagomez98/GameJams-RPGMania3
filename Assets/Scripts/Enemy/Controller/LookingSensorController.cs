@@ -30,7 +30,7 @@ public class LookingSensorController : EnemyElement
             StopCoroutine(stopFollowPlayerCoroutine);
         }
 
-        app.proximitySensorView.OnToggleActivateCollider();
+        app.proximitySensorView.DisableProximitySensor();
     }
 
     public void OnPlayerExitVisionArea()

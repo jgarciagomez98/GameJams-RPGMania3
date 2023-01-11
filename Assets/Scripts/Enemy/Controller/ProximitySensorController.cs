@@ -10,12 +10,7 @@ public class ProximitySensorController : EnemyElement
         {
             app.model.PlayerTransform = playerTransform;
             app.lookingSensorController.OnPlayerEnterVisionArea(playerTransform);
-            ToggleActivateCollider();
+            app.proximitySensorView.DisableProximitySensor();
         }
-    }
-
-    private void ToggleActivateCollider()
-    {
-        app.proximitySensorView.OnToggleActivateCollider();
     }
 }
